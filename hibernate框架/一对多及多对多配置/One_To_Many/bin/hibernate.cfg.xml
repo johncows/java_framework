@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+
+
+<hibernate-configuration>
+	<!-- 配置数据库信息 -->
+	<session-factory>
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.url">jdbc:mysql:///hibernate?useUnicode=true&amp;characterEncoding=utf-8</property>
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">883721</property>
+	
+		<!-- 配置hibernate文件信息 -->
+		<!-- 显示底层语句 格式化sql语句代码 -->
+		<property name="hibernate.show_sql">true</property>
+		<property name="hibernate.format_sql">true</property>
+	
+	
+		<!--hibernate帮创建表 有则更新 无则创新 -->
+		<property name="hibernate.hbm2ddl.auto">update</property>
+	
+		<!-- 数据库的方言 -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+
+		<!-- 配置映射文件 -->
+		<mapping resource="entity/Category.hbm.xml"/>
+		<mapping resource="entity/Product.hbm.xml"/>
+	
+	
+	</session-factory>
+
+
+
+</hibernate-configuration>

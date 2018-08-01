@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    
+<hibernate-mapping>
+
+	<class name="entity.Category" table="category">
+		<id name="cid" column="cid">
+			<generator class="native"></generator>
+		</id>	
+	 	
+	 	<property name="cname" column="cname"></property>
+		
+		<set name="productSet" cascade="save-update">
+			<key column="pcid"></key>
+			<one-to-many class="entity.Product"/>	
+		</set>	
+	</class>
+
+
+</hibernate-mapping>
