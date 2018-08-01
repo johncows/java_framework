@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  
+ 
+ <hibernate-mapping>
+	<class name="entity.Order" table="t_order">
+		<id name="oid" column="oid">
+			<generator class="native"></generator>
+		</id>
+	
+	<property name="oname" column="oname"></property>
+	
+	<set name="productSet" table="order_item">
+		<key column="o_oid"></key>
+		<many-to-many class="entity.Product" column="p_pid"></many-to-many>
+	
+	</set>
+	
+	
+	</class>
+	 
+ </hibernate-mapping>
