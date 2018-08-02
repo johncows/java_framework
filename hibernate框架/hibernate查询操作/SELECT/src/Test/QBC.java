@@ -3,7 +3,6 @@ package Test;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.junit.Test;
@@ -34,15 +33,6 @@ public class QBC {
 		List<Product> list = criteria.list();
 		System.out.println(list.get(0));
 	}
-	
-	@Test
-	public void Select3(){
-		Session session = hiberanateUtil.getSession();
-		Criteria criteria = session.createCriteria(Product.class);
-		
-	
-	}
-	
 	
 	
 }

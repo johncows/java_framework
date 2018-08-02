@@ -1,5 +1,6 @@
 package Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.hibernate.Query;
@@ -88,6 +89,68 @@ public class hql{
 		Long num = (Long) uniqueResult;
 		System.out.println(num.intValue());
 	}
+	
+	@Test
+	//内连接 返回的是数组形式
+	public void select8() {
+		Session session = hiberanateUtil.getSession();
+		Query query = session.createQuery("from Order o inner join o.productSet");
+		List<Object[]> list = query.list();
+		list.forEach(e->System.out.println(Arrays.toString(e)));
+	}
+	
+	@Test
+	//迫切内连接 返回的是from后面实体类的类型
+	public void select9() {
+		Session session = hiberanateUtil.getSession();
+		Query query = session.createQuery("from Order o inner join fetch o.productSet");
+		List<Order> list = query.list();
+		list.forEach(e->System.out.println(e));
+	}
+	
+	@Test
+	/*
+		 * 左外连接 返回的是数组形式
+		 *  在该段代码中 返回的是一个list集合的object数组，
+		 *  该数组中包含着2个Object 一个是order 一个是product
+	 */
+	public void select10() {
+		Session session = hiberanateUtil.getSession();
+		Query query = session.createQuery("from Order o left outer join o.productSet");
+		List<Object[]> list = query.list();
+		Object object[] = list.get(0);
+		System.out.println(object[0]);
+	}
+	
+	
+	/*
+	 *  迫切外链接 和迫 内连接相同 区别在于 左连接除了显示原本的关系表之外 
+	 *  额外的显示 自己左表的全部数据 
+	 */
+	@Test
+	public void select11() {
+		Session session = hiberanateUtil.getSession();
+		Query query = session.createQuery("from Order o left outer join fetch o.productSet");
+		List<Order> list = query.list();
+		System.out.println(list);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
