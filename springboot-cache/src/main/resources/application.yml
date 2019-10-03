@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/study?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
+  data:
+    cassandra:
+      connect-timeout:
+  redis:
+    host: 192.168.100.128
+    port: 6379
+mybatis:
+  mapper-locations: com.kk.mapper/**
+  configuration:
+    map-underscore-to-camel-case: true
+# 显示sql语句
+logging:
+  level:
+    com.kk.mapper:
+      debug
+
+debug: true
+
+
+
