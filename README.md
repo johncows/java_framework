@@ -12,5 +12,7 @@
  #### 相应链接：
 
  * [hibernate框架](hibernate框架)
- * [springboot-cache.md](springboot-cache使用)
+ * [springboot-cache使用](springboot-cache.md)
     * springboot2.0+redis-start下,使用redisManager与redisTemplate的方式
+* [springboot-message使用](springboot-message.md)
+
