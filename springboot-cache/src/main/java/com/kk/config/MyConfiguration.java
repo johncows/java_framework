@@ -19,17 +19,17 @@ public class MyConfiguration {
 
 
     @Bean(name = "myKeyGenerator")
-    public KeyGenerator keyGenerator(){
-        return ( target,  method,  params)->{
-            String s = params[0]+"";
-            s= "["+s+"]";
-            System.out.println("生成的key值为"+s);
+    public KeyGenerator keyGenerator() {
+        return (target, method, params) -> {
+            String s = params[0] + "";
+            s = "[" + s + "]";
+            System.out.println("生成的key值为" + s);
             return s;
         };
     }
 
     @Bean(name = "redisTemplate")
-    public RedisTemplate<Object,Employee> redisTemplate(RedisConnectionFactory redisConnectionFactory){
+    public RedisTemplate<Object, Employee> redisTemplate(RedisConnectionFactory redisConnectionFactory) {
         RedisTemplate<Object, Employee> redisTemplate = new RedisTemplate<>();
         redisTemplate.setConnectionFactory(redisConnectionFactory);
         redisTemplate.setDefaultSerializer(new Jackson2JsonRedisSerializer<>(Employee.class));
@@ -37,7 +37,7 @@ public class MyConfiguration {
     }
 
     @Bean
-    public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory){
+    public CacheManager cacheManager(RedisConnectionFactory redisConnectionFactory) {
         RedisCacheConfiguration redisCacheConfiguration = RedisCacheConfiguration.defaultCacheConfig();
         boolean b = redisCacheConfiguration.usePrefix();
         System.out.println("b = " + b);

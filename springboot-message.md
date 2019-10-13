@@ -118,9 +118,35 @@
    
    ```
    
-   **springboot-mq默认采用的是jdk序列化的操作,可以替换MessageConver组件,选择Jackson组件使生成json串来传输**
+   **springboot-mq默认采用的是jdk序列化的操作,可以替换MessageConver组件,选择Jackson组件使生成json串来传输信息**
    
    ![1570271915441](springboot-message.assets/1570271915441.png)
    
    ![1570272037410](springboot-message.assets/1570272037410.png)
-
+   
+   4. 使用amqpAdmin操作RabbitMQ
+   
+      ![1570327816662](springboot-message.assets/1570327816662.png)
+   
+      ​	创建交换器时,默认持久化和非自动删除
+   
+      <img src="springboot-message.assets/1570327911199.png" alt="1570327911199" style="zoom:80%;" />
+   
+      ![1570327882634](springboot-message.assets/1570327882634.png)
+   
+      ----------------
+   
+      绑定交换机与消息队列
+   
+      ![1570330183758](springboot-message.assets/1570330183758.png)
+   
+      ```java
+      amqpAdmin.declareBinding(newBinding("bookQueue",Binding.DestinationType.QUEUE,"bookExchange","book",null));
+      
+      ```
+   
+      绑定后
+   
+      ![1570330335039](springboot-message.assets/1570330335039.png)
+   
+      

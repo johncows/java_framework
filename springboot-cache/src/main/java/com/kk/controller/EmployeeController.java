@@ -14,19 +14,19 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @RequestMapping("/queryEmployee/{id}")
-    public Employee queryEmployeeById(@PathVariable Integer id){
+    public Employee queryEmployeeById(@PathVariable Integer id) {
         Employee employee = employeeService.queryEmployeeById(id);
         return employee;
     }
 
     @RequestMapping("/updateEmployee/{id}")
-    public Employee updateEmployeeById(@PathVariable Integer id){
-        Employee employee = employeeService.updateEmployeeName("wang",1);
+    public Employee updateEmployeeById(@PathVariable Integer id) {
+        Employee employee = employeeService.updateEmployeeName("wang", 1);
         return employee;
     }
 
     @RequestMapping("/cleanCache/{id}")
-    public String cleanEmployee(@PathVariable Integer id){
+    public String cleanEmployee(@PathVariable Integer id) {
         employeeService.deleteEmployee(id);
         return "成功";
     }
