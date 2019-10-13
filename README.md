@@ -15,4 +15,8 @@
  * [springboot-cache使用](springboot-cache.md)
     * springboot2.0+redis-start下,使用redisManager与redisTemplate的方式
 * [springboot-message使用](springboot-message.md)
+* [springboot-security使用](springboot-security.md)
+* [springboot-elasticsearch使用](springboot-elasticSearch.md)
+
+
 
